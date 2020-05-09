@@ -7,9 +7,7 @@
     <title>Alien Game</title>
 </head>
 
-<body>
-    <main>
-        <section id="game">
+    <section id="game"> 
 
             <h1>Alien Attack!</h1>
 
@@ -27,11 +25,11 @@
                 <input id="inputY" type="text" placeholder="Y...">
                 <button>fire!</button>
 
-        </section>  
+        </section> 
     
         <script>
 
-            var alienX = 80;
+            var alienX = Math.floor(Math.random() * 280);
             var alienY = 20;
             var guessX = 0;
             var guessY = 0;
@@ -43,9 +41,9 @@
             //creates the game objects
             var cannon = document.querySelector("#cannon");
             var alien = document.querySelector("#alien");
-            var missle = document.querySelector("#missle");
+            var missile = document.querySelector("#missile");
             var explosion = document.querySelector("#explosion");
-            var background = document.querySelector("#background");
+            
 
             //creates the input and output fields
             var inputX = document.querySelector("#inputX");
@@ -58,7 +56,7 @@
             button.addEventListener("click", clickHandler, false);
 
             //listen for enter key
-            window.addEventListener("keydown", keydownHandler. false);
+            window.addEventListener("keydown", keydownHandler, false);
 
             function clickHandler()
             {
@@ -100,7 +98,7 @@
                 //position the cannon
                 cannon.style.left = guessX + "px";
 
-                //position the missle
+                //position the missile
                 missile.style.left = guessX + "px";
                 missile.style.top = guessY + "px";
 
@@ -115,8 +113,8 @@
                     //hide the alien
                     alien.style.display = "none";
 
-                    //hide the missle
-                    missle.style.display = "none";
+                    //hide the missile
+                    missile.style.display = "none";
 
                 }
                 
@@ -162,7 +160,7 @@
 
             if(!gameWon)
             {
-                alienX = Math.floor(Math.random() * 280);
+                alienX = Math.floor(Math.random() * 281);
 
                 //add 3 to the new Y so alien moves towards earth.
                 alienY += 30;
@@ -203,7 +201,5 @@
     
         </script>
         
-    </main>
-
-    </body>
+   
 </html>
